@@ -1,0 +1,23 @@
+{
+	"name": "graphql-crash-course",
+	"version": "1.0.0",
+	"description": "js",
+	"main": "index.js",
+	"scripts": {
+		"compile": "tsc",
+		"start": "npm run compile && nodemon ./dist/index.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "module",
+	"dependencies": {
+		"@apollo/server": "^4.7.5",
+		"graphql": "^16.7.1",
+		"nodemon": "^2.0.22"
+	},
+	"devDependencies": {
+		"@types/node": "^20.3.2",
+		"typescript": "^5.1.6"
+	}
+}
