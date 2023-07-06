@@ -46,6 +46,43 @@ const resolvers = {
 			return _db.games.find((game) => game.id === parent.game_id)
 		},
 	},
+	Mutation: {
+		deleteGame(_, args) {
+			_db.games = _db.games.filter((game) => game.id !== args.id)
+			return _db.games
+		},
+		addAuthor(_, args) {
+			let author = {
+				...args.author,
+				id: _db.authors.length + 1,
+			}
+
+			_db.authors.push(author)
+			return author
+		},
+		deleteAuthor(_, args) {
+			_db.authors = _db.authors.filter((author) => author.id !== args.id)
+			return _db.authors
+		},
+
+		addReview(_, args) {
+			let review = {
+				...args.review,
+				id: _db.reviews.length + 1,
+			}
+			_db.reviews.push(review)
+			return review
+		},
+
+		addGame(_, args) {
+			let game = {
+				...args.game,
+				id: _db.games.length + 1,
+			}
+			_db.games.push(game)
+			return game
+		},
+	},
 }
 const server = new ApolloServer({
 	typeDefs,
